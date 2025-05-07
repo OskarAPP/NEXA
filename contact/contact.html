@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - NEXA CRM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+        <img src="../SFondo.png" alt="NEXA Logo" class="logo">
+        <nav>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../charac/characteristics.html">CARACTERISTICAS</a></li>
+                <li><a href="../pricing/princing.html">PRECIOS</a></li>
+                <li><a href="../contact/contact.html">CONTACTANOS</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+  <main>
+    <section class="section contact-section">
+      <div class="container">
+        <h2>¡Hablemos!</h2>
+        <p>¿Tienes preguntas o necesitas más información? Completa el formulario y nos pondremos en contacto contigo.</p>
+        <form action="#" method="post" class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 NEXA. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

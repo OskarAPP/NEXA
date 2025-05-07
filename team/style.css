@@ -1,0 +1,275 @@
+/* Variables de tema */
+:root {
+    --blue-primary: #005c9e;
+    --blue-light: #E6F0FA;
+    --text-dark: #333333;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--blue-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%; /* Más flexible para pantallas pequeñas */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+a { text-decoration: none; }
+
+/* Header */
+header {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo a la izquierda, nav a la derecha */
+    padding: 1rem 0;
+}
+
+/* Logo */
+.logo {
+    width: 140px;
+    max-width: 100%; /* Evita desbordamiento */
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap; /* Permite apilamiento si es necesario */
+}
+
+nav a {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Tamaño adaptable */
+}
+
+nav a:hover { color: var(--blue-primary); }
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Oculto en escritorio */
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger span {
+    background: var(--text-dark);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+
+#menu-toggle { display: none; }
+
+#menu-toggle:checked ~ .nav-menu {
+    transform: translateX(0); /* Mostrar menú en móvil */
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: clamp(1.5rem, 5vw, 2rem) 0;
+    background: var(--blue-primary);
+    color: white;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Escalable */
+    margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+/* Team Image Section */
+.team-image {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.team-image img {
+    width: 100%; /* Escala con el contenedor */
+    max-width: 800px; /* Limita el tamaño en pantallas grandes */
+    height: auto; /* Mantiene la proporción */
+    object-fit: contain; /* Asegura que la imagen sea completamente visible */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.team-image figcaption {
+    margin-top: 0.5rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: var(--text-dark);
+}
+
+/* Secciones */
+.section {
+    background-color: white;
+    padding: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.section.alt-bg { background-color: var(--blue-light); }
+
+.section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--blue-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section p {
+    max-width: 90%; /* Más flexible */
+    margin: 0.5rem auto;
+    text-align: justify; /* Texto justificado */
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.8; /* Mejora la legibilidad */
+}
+
+/* Botón CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--blue-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 50px;
+    transition: background 0.3s;
+    margin-top: 1.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.cta-button:hover {
+    background-color: #004080;
+}
+
+/* Footer */
+footer {
+    background-color: var(--blue-primary);
+    color: white;
+    text-align: center;
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row; /* Mantener logo a la izquierda, hamburguesa a la derecha */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block; /* Mostrar hamburguesa en móvil */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%); /* Oculto por defecto */
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    nav a {
+        font-size: clamp(1rem, 3vw, 1.2rem); /* Mayor tamaño en móvil */
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .team-image img {
+        max-width: 600px; /* Reduce el tamaño máximo en tabletas */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .hero .subtitle {
+        font-size: clamp(0.9rem, 4vw, 1rem);
+    }
+
+    .section h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    .section p {
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+
+    .team-image img {
+        max-width: 100%; /* Asegura que se ajuste al ancho del contenedor */
+    }
+}

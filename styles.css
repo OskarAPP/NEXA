@@ -1,0 +1,365 @@
+/* Variables de tema */
+:root {
+    --blue-primary: #007aff;
+    --blue-light: #f7f7f7;
+    --text-dark: #333;
+    --font-heading: 'Arial', sans-serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuentes y colores */
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--blue-light);
+}
+
+/* Contenedor central */
+.container {
+    width: 90%; /* Más flexible para pantallas pequeñas */
+    max-width: 1200px; /* Límite máximo para pantallas grandes */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que el nav se ajuste en pantallas pequeñas */
+}
+
+/* Logo */
+header .logo {
+    width: 120px; /* Tamaño más pequeño para mejor ajuste */
+    max-width: 100%; /* Evita desbordamiento */
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger span {
+    background: var(--text-dark);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 16px;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+/* Navigation */
+header nav .nav-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+}
+
+header nav .nav-menu li a {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+header nav .nav-menu li a:hover {
+    color: var(--blue-primary);
+}
+
+/* Hero Section */
+.hero {
+    background: url('call.webp') no-repeat center center/cover;
+    color: white;
+    min-height: 60vh; /* Altura mínima más flexible */
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-text {
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    max-width: 90%; /* Más flexible para pantallas pequeñas */
+    padding: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño de fuente adaptable */
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--blue-primary);
+    color: white;
+    border-radius: 30px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #005bb5;
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.5);
+}
+
+/* Características del CRM */
+.features {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 2.5rem;
+    color: var(--text-dark);
+}
+
+.feature-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las tarjetas se apilen */
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: min(100%, 300px); /* Ancho adaptable */
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.feature-img {
+    width: 100%;
+    height: 180px; /* Altura ajustada */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.feature-card h3 {
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    margin: 1rem 0;
+    color: var(--text-dark);
+}
+
+.feature-card p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    padding: 0 0.5rem 1rem;
+    color: #666;
+}
+
+/* Sobre la Empresa */
+.about-company {
+    background-color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-company h2 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-bottom: 1.5rem;
+}
+
+.about-company p {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    max-width: 90%;
+    margin: 0 auto;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+/* Efecto en los botones de navegación */
+header nav .nav-menu li a {
+    position: relative;
+}
+
+header nav .nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--blue-primary);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+header nav .nav-menu li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    header .header-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header .logo {
+        width: 100px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header nav .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        list-style-type: none;
+    }
+
+    #menu-toggle:checked ~ .nav-menu {
+        transform: translateX(0);
+    }
+
+    header nav .nav-menu li a {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    .hero {
+        min-height: 50vh;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .hero p {
+        font-size: clamp(0.8rem, 4vw, 1rem);
+    }
+
+    .cta-button {
+        padding: 0.5rem 1rem;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+
+    .features, .about-company {
+        padding: 2rem 0.5rem;
+    }
+
+    .feature-img {
+        height: 150px;
+    }
+}
